@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author Guilherme
  */
-public class Main1002Test {
+public class Main1002T {
     
     @Test
     public void testCalcularArea() {
