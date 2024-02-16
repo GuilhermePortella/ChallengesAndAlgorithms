@@ -19,30 +19,26 @@ import static java.util.stream.Collectors.toList;
 public class PlusMinus {
 
     public static void plusMinus(List<Integer> arr) {
-        
+
         float positive = 0;
         float negative = 0;
         float zeros = 0;
-        
-        for (int i = 0; i < arr.size(); i++) {
-            
-            if(arr.get(i) > 0){
-                positive ++;
-            }else if(arr.get(i) < 0){
-                negative ++;
-            }else if(arr.get(i) == 0){
-                zeros ++;
-            }
-            
-            
-        System.out.printf("%.5f%n", positive/arr.size());
-        System.out.printf("%.5f%n", negative/arr.size());
-        System.out.printf("%.5f%n", zeros/arr.size());
-            
-        }
-        
-        
 
+        for (int i = 0; i < arr.size(); i++) {
+
+            if (arr.get(i) > 0) {
+                positive++;
+            } else if (arr.get(i) < 0) {
+                negative++;
+            } else if (arr.get(i) == 0) {
+                zeros++;
+            }
+
+        }
+
+        System.out.printf("%.5f%n", positive / arr.size());
+        System.out.printf("%.5f%n", negative / arr.size());
+        System.out.printf("%.5f%n", zeros / arr.size());
     }
 
     public static void main(String[] args) throws IOException {
