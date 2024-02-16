@@ -5,47 +5,46 @@ package br.guilherme.Algoritmos.HackerRank;
  * @author Guilherme
  */
 import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
 import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class AVeryBigSum {
 
     /*
-     * Complete the 'simpleArraySum' function below.
+     * Complete the 'aVeryBigSum' function below.
      *
-     * The function is expected to return an INTEGER.
-     * The function accepts INTEGER_ARRAY ar as parameter.
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER_ARRAY ar as parameter.
      */
-
-    public static int simpleArraySum(List<Integer> ar) {
-        int numT = 0;
-        for(int num = 0; num < ar.size(); num ++ ){
-            numT = numT + ar.get(num);
-        }
+    public static long aVeryBigSum(List<Long> ar) {
         
-     return numT;
+        long sun = 0;
+        
+        for(int num = 0; num < ar.size(); num ++ ){
+            sun = sun + ar.get(num);
+        }
+        return sun;
     }
 
-    static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-}
-
-public class Simple_Array_Sum {
-    
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int arCount = Integer.parseInt(bufferedReader.readLine().trim());
 
-        List<Integer> ar = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-            .map(Integer::parseInt)
+        List<Long> ar = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Long::parseLong)
             .collect(toList());
 
-        int result = Result.simpleArraySum(ar);
+        long result = aVeryBigSum(ar);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
@@ -53,4 +52,5 @@ public class Simple_Array_Sum {
         bufferedReader.close();
         bufferedWriter.close();
     }
+
 }
