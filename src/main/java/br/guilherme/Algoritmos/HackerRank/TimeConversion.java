@@ -5,9 +5,14 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -17,18 +22,23 @@ public class TimeConversion {
 
     public static String timeConversion(String s) {
 
-        String formaa = s;
-       DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern(formaa);
-        DateTimeFormatter parseFormatter = DateTimeFormatter.ofPattern("hh:mm a");
-
-        LocalTime time = LocalTime.parse("10:30 PM", parseFormatter);
+        
+        DateFormat hours12Format = new SimpleDateFormat("hh:mm:ssaa");
+        DateFormat hours24Format = new SimpleDateFormat("HH:mm:ss");
+        String result = null;
+        
+        try{
+            Date parsed12HoursDate = hours12Format.parse(s);
+            result = hours24Format.format(parsed12HoursDate);
+        }catch(ParseException e) {
+            
+        }
+        
+        return result;
+    }
         
 
-        return parseFormatter.format(time);
 
-    }
-    
-    
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
